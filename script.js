@@ -12,7 +12,7 @@ async function askModel() {
     button.disabled = true;
 
     try {
-        const response = await fetch('https://82ab2b822f4695.app.lhr.life/api/generate', {
+        const response = await fetch('https://e979505235e7cc.app.lhr.life/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
