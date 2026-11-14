@@ -14,7 +14,7 @@ async function askModel() {
     try {
         const response = await fetch('https://renvj-37-214-65-149.run.pinggy-free.link/api/generate', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'text/plain'},
             body: JSON.stringify({
                 model: 'qwen3-coder:30b',
                 prompt: prompt,
