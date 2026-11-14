@@ -3,7 +3,7 @@ const input = document.getElementById('Promt-input');
 const responseBlock = document.getElementById('Response-block');
 
 async function askModel() {
-    const prompt = input.ariaValueMax.trim();
+    const prompt = input.value.trim();
     if (!prompt) { return; }
 
     responseBlock.style.display = 'block';
@@ -12,7 +12,7 @@ async function askModel() {
     button.disabled = true;
 
     try {
-        const responce = await fetch('http://localhost:11434/api/generate', {
+        const response = await fetch('http://localhost:11434/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -22,11 +22,11 @@ async function askModel() {
             })
         })
 
-        if (!responce.ok) {
+        if (!response.ok) {
             throw new Error(`HTTP Error: ${response.status}`);
         }
 
-        const reader = responce.body.getReader();
+        const reader = response.body.getReader();
         const decoder = new TextDecoder('utf-8');
         responseBlock.textContent = '';
 
@@ -57,7 +57,7 @@ async function askModel() {
 button.addEventListener('click', askModel);
 
 input.addEventListener('keypress', (e) => {
-    if (e.key === Enter) {
+    if (e.key === 'Enter') {
         askModel();
     }
 });

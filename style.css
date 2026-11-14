@@ -55,7 +55,7 @@ button {
     margin: 0;
 }
 
-.Response-block {
+#Response-block {
     width: 750px; /* Ширина как у input + button */
     max-height: 400px;
     overflow-y: auto;
