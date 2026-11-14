@@ -13,6 +13,59 @@ body {
     justify-content: center;
 }
 
-h1 {
-    color: rgb(44, 94, 21);
+.Main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 1000px;
+}
+
+header {
+    font-size: 40px;
+    margin-bottom: 200px;
+    color:rgb(0, 0, 0)
+}
+
+input {
+    border: 1px solid black;
+    color: black;
+    height: 50px;
+    width: 700px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 10px;
+    margin: 0;
+}
+
+.Input-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+button {
+    border: 1px solid black;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 50px;
+    width: 50px;
+    margin: 0;
+}
+
+.Response-block {
+    width: 750px; /* Ширина как у input + button */
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Сохраняет переносы строк и форматирование кода */
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    display: none; /* Скрыт, пока нет ответа */
 }
