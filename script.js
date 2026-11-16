@@ -15,7 +15,7 @@ async function askModel() {
         //ssh -R 80:127.0.0.1:8000 nokey@localhost.run в консоль вставить выдаст ссылку с окончанием life потом добавить/api/generate
         //перед этим запустить uvicorn: python -m uvicorn server:app --host 127.0.0.1 --port 8000 и перед этим перейти в консоли на путь где лежит папка с файлами
         //обязательно очистить жестко кеш и код с гитхаба залить в vscode
-        const response = await fetch('https://a223cdef725e2b.app.lhr.life/api/generate', {
+        const response = await fetch('https://17601677750987.app.lhr.life/api/generate', {
             method: 'POST',
             headers: {'Content-Type': 'text/plain'},
             body: JSON.stringify({
