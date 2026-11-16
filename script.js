@@ -18,7 +18,7 @@ async function askModel() {
             body: JSON.stringify({
                 model: 'qwen3-coder:30b',
                 prompt: prompt,
-                stream: false
+                stream: true
             })
         })
 
