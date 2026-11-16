@@ -12,7 +12,7 @@ async function askModel() {
     button.disabled = true;
 
     try {
-        const response = await fetch(' https://ubpkr-37-214-65-149.run.pinggy-free.link/api/generate', {
+        const response = await fetch('https://qbtos-37-214-65-149.run.pinggy-free.link/api/generate', {
             method: 'POST',
             headers: {'Content-Type': 'text/plain'},
             body: JSON.stringify({
