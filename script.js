@@ -14,6 +14,7 @@ async function askModel() {
     try {
         //ssh -R 80:127.0.0.1:8000 nokey@localhost.run в консоль вставить выдаст ссылку с окончанием life потом добавить/api/generate
         //перед этим запустить uvicorn: python -m uvicorn server:app --host 127.0.0.1 --port 8000 и перед этим перейти в консоли на путь где лежит папка с файлами
+        //обязательно очистить жестко кеш и код с гитхаба залить в vscode
         const response = await fetch('https://a223cdef725e2b.app.lhr.life/api/generate', {
             method: 'POST',
             headers: {'Content-Type': 'text/plain'},
@@ -31,19 +32,22 @@ async function askModel() {
         const reader = response.body.getReader();
         const decoder = new TextDecoder('utf-8');
         responseBlock.textContent = '';
+        let buffer = '';
 
         while (true) {
             const { done, value } = await reader.read();
-            if (done) { break; }
+            if (done) break;
 
-            const chunk = decoder.decode(value, { stream: true });
-            const lines = chunk.split('\n');
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop(); // оставляем недописанный хвост до следующего пакета
 
             for (const line of lines) {
-                if (line.trim() !== '') {
+                if (line.trim()) {
                     const parsed = JSON.parse(line);
-                    responseBlock.textContent += parsed.response;
-                    responseBlock.scrollTop = responseBlock.scrollHeight;
+                    if (parsed.response) {
+                        responseBlock.textContent += parsed.response;
+                    }
                 }
             }
         }
