@@ -17,5 +17,5 @@ async def generate(request: Request):
     body = json.loads(raw_body)
     body["stream"] = False
     async with httpx.AsyncClient(timeout=300.0) as client:
-        resp = await client.post("http://127.0.0", json=body)
+        resp = await client.post("http://127.0.0.1:11434/api/generate", json=body)
         return resp.json()
